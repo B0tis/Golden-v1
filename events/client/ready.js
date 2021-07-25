@@ -13,14 +13,14 @@ module.exports = client => {
   }catch{ /* */ }
 
   try{
-    client.user.setActivity(' g!help ', { type: 2 });
+    client.user.setActivity(`${config.prefix}help`, { type: 2 });
   }catch (e) {
       console.log(String(e.stack).red);
   }
   // Change status each 10 minutes
   setInterval(()=>{
     try{
-      client.user.setActivity(' g!help ', { type: 2 });
+      client.user.setActivity(`${config.prefix}help`, { type: 2 });
     }catch (e) {
         console.log(String(e.stack).red);
     }

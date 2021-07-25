@@ -15,14 +15,14 @@ module.exports = client => {
   try{
     client.user.setActivity(`${config.prefix}help`, { type: 2 });
   }catch (e) {
-      console.log(String(e.stack).red);
+      // console.log(String(e.stack).red);
   }
   // Change status each 10 minutes
   setInterval(()=>{
     try{
       client.user.setActivity(`${config.prefix}help`, { type: 2 });
     }catch (e) {
-        console.log(String(e.stack).red);
+        // console.log(String(e.stack).red);
     }
   }, 10*60*1000)
 }

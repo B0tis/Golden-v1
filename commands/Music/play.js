@@ -30,8 +30,6 @@ module.exports = {
 							.setTitle(`❌ ERROR | Please Join a Voice Channel!`)
 					)
 					.then((msg) => {
-						client.distube.play(message, music);
-
 						return msg.delete({ timeout: 5000 });
 					});
 			}

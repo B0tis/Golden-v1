@@ -14,7 +14,7 @@ module.exports = async (client) => {
         client.on(eventName, event.bind(null, client));
       }
     }
-    await ["client", "guild", "Ecosystem"].forEach(e=>load_dir(e));
+    await ["client", "guild", "Ecosystem", "Moderation"].forEach(e=>load_dir(e));
     for (let i = 0; i < allevents.length; i++) {
         try {
             table.addRow(allevents[i], "Ready");
@@ -55,7 +55,7 @@ const Discord = require("discord.js");
 
 const client = new Discord.Client({
   messageCacheLifetime: 60,
-  fetchAllMembers: false,
+  fetchAllMembers: true,
   messageCacheMaxSize: 10,
   restTimeOffset: 0,
   restWsBridgetimeout: 100,

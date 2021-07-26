@@ -40,13 +40,13 @@ module.exports = {
 				VIEW_CHANNEL: true
 			});
 
-			let closeBtn = new disbut.MessageButton().setStyle('red').setLabel('Close').setID('close');
+			let closeBtn = new disbut.MessageButton().setStyle('red').setLabel('📁 | Close').setID('close');
 
-			let deleteBtn = new disbut.MessageButton().setStyle('red').setLabel('Delete').setID('delete');
+			let deleteBtn = new disbut.MessageButton().setStyle('red').setLabel('🗑️ | Delete').setID('delete');
 
-			let saveBtn = new disbut.MessageButton().setStyle('blurple').setLabel('Save').setID('save');
+			let saveBtn = new disbut.MessageButton().setStyle('blurple').setLabel('🗄️ | Save').setID('save');
 
-			let reopenBtn = new disbut.MessageButton().setStyle('green').setLabel('Reopen').setID('reopen');
+			let reopenBtn = new disbut.MessageButton().setStyle('green').setLabel('📂 | Reopen').setID('reopen');
 
 			let btns = new disbut.MessageActionRow().addComponents(deleteBtn, saveBtn, reopenBtn);
 

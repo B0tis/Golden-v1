@@ -14,7 +14,7 @@ module.exports = async (client) => {
         client.on(eventName, event.bind(null, client));
       }
     }
-    await ["client", "guild", "Ecosystem", "Moderation"].forEach(e=>load_dir(e));
+    await ["client", "guild", "moderation"].forEach(e=>load_dir(e));
     for (let i = 0; i < allevents.length; i++) {
         try {
             table.addRow(allevents[i], "Ready");
@@ -48,19 +48,12 @@ module.exports = async (client) => {
     console.log(String(e.stack).bgRed)
   }
 };
-
-
-/** DisTube */
-const Discord = require("discord.js");
-
-const client = new Discord.Client({
-  messageCacheLifetime: 60,
-  fetchAllMembers: true,
-  messageCacheMaxSize: 10,
-  restTimeOffset: 0,
-  restWsBridgetimeout: 100,
-  disableEveryone: true,
-  partials: ['MESSAGE', 'CHANNEL', 'REACTION']
-});
-
-/** Template by Tomato#6966 | https://github.com/Tomato6966/Discord-Js-Handler-Template */
+/**
+  * @INFO
+  * Bot Coded by Tomato#6966 | https://github.com/Tomato6966/Discord-Js-Handler-Template
+  * @INFO
+  * Work for Milrato Development | https://milrato.eu
+  * @INFO
+  * Please mention Him / Milrato Development, when using this Code!
+  * @INFO
+*/

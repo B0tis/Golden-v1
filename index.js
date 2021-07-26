@@ -1,7 +1,7 @@
 ﻿//Importing all needed Commands
 const Discord = require('discord.js'); //this is the official discord.js wrapper for the Discord Api, which we use!
 const colors = require('colors'); //this Package is used, to change the colors of our Console! (optional and doesnt effect performance)
-const fs = require('fs'); //this package is for reading files and getting their inputs
+const fs = require('fs'); //this package is for reading files and getting their inputsconst fs = require('fs'); //this package is for reading files and getting their inputs
 const { MessageEmbed } = require('discord.js');
 const config = require('./botconfig/config.json');
 const ee = require('./botconfig/embed.json');
@@ -35,7 +35,6 @@ const dboptions = {
 	useFindAndModify: false,
 	autoIndex: false,
 	poolSize: 5,
-	connectionTimeoutMS: 10000,
 	family: 4
 };
 
@@ -68,10 +67,16 @@ client.categories = fs.readdirSync('./commands/'); //categories
 client.cooldowns = new Discord.Collection(); //an collection for cooldown commands of each user
 // client.emotes = config.emoji
 
+//defining all files 2 be loaded in ./handlers
+client.handlers = [ 'command', 'events' ];
 //Loading files, with the client variable like Command Handler, Event Handler, ...
-[ 'command', 'events' ].forEach((handler) => {
-	require(`./handlers/${handler}`)(client);
-});
+function handlers() {
+	client.handlers.forEach((handler) => {
+		require(`./handlers/${handler}`)(client);
+	});
+}
+handlers();
+module.exports.handlers = handlers;
 
 /** Template by Tomato#6966 | https://github.com/Tomato6966/Discord-Js-Handler-Template */
 

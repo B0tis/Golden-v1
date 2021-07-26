@@ -1,5 +1,6 @@
 //here the event starts
 const config = require("../../botconfig/config.json")
+const {change_status} = require("../../handlers/functions")
 module.exports = client => {
   try{
     const stringlength = 69;
@@ -13,18 +14,25 @@ module.exports = client => {
   }catch{ /* */ }
 
   try{
-    client.user.setActivity(`${config.prefix}help`, { type: 2 });
+    change_status(client)
   }catch (e) {
-      // console.log(String(e.stack).red);
+    console.log(String(e.stack).red);
   }
-  // Change status each 10 minutes
+  //Change status each 10 minutes
   setInterval(()=>{
     try{
-      client.user.setActivity(`${config.prefix}help`, { type: 2 });
+      change_status(client)
     }catch (e) {
-        // console.log(String(e.stack).red);
+      console.log(String(e.stack).red);
     }
   }, 10*60*1000)
 }
-
-/** Template by Tomato#6966 | https://github.com/Tomato6966/Discord-Js-Handler-Template */
+/**
+  * @INFO
+  * Bot Coded by Tomato#6966 | https://github.com/Tomato6966/Discord-Js-Handler-Template
+  * @INFO
+  * Work for Milrato Development | https://milrato.eu
+  * @INFO
+  * Please mention Him / Milrato Development, when using this Code!
+  * @INFO
+*/

@@ -73,10 +73,10 @@ module.exports = {
 						ticketFunctions.Close(creator, channel, button, message, closeBtn, btns);
 						break;
 					case 'delete':
-						ticketFunctions.Delete(button);
+						ticketFunctions.Delete(button, deleteBtn);
 						break;
 					case 'save':
-						ticketFunctions.Save();
+						ticketFunctions.Save(client, button, saveBtn);
 						break;
 					case 'reopen':
 						ticketFunctions.Reopen(channel, creator, closeBtn, msg, button, pinndedOne);

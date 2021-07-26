@@ -11,10 +11,9 @@ const { getVoiceConnection } = require('@discordjs/voice');
 module.exports = {
 	name: 'setup',
 	category: 'Music',
-	aliases: [ '' ],
 	cooldown: 10,
 	usage: 'setup',
-	description: 'Setup a channel only for the bot',
+	description: 'Setup a channel only for the Songrequests',
 
 	run: async (client, message, args, user, text, prefix) => {
 		try {

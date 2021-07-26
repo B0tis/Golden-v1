@@ -5,6 +5,8 @@ const ee = require('../../botconfig/embed.json');
 const profileModel = require('../../events/Ecosystem/profileSchema');
 require('dotenv').config();
 
+const ticketFunctions = require('../../handlers/ticketFunctions');
+
 module.exports = {
 	name: 'ticketCreate',
 	category: 'Ticketsystem',
@@ -51,9 +53,9 @@ module.exports = {
 			let btns = new disbut.MessageActionRow().addComponents(deleteBtn, saveBtn, reopenBtn);
 
 			const reactionMessage = await channel
-				.send('Thank you for creating a Ticket. How can we Help you?', closeBtn)
+				.send(`${creator} Thank you for creating a Ticket. How can we Help you?`, closeBtn)
 				.then((message) => {
-					message.pin({ reason: 'Important' });
+					message.pin();
 				});
 
 			let pinnedMessage = channel.messages
@@ -68,50 +70,16 @@ module.exports = {
 				const msg = message;
 				switch (button.id) {
 					case 'close':
-						try {
-							button.message.edit(
-								closeBtn.setDisabled().setLabel(`Closed by ${button.clicker.user.username}`)
-							);
-
-							channel.updateOverwrite(creator, {
-								SEND_MESSAGES: false,
-								VIEW_CHANNEL: false
-							});
-
-							button.channel.send(`Ticket closed, what will happen next?`, btns);
-						} catch (e) {
-							return message.channel.send(
-								new MessageEmbed()
-									.setColor(ee.wrongcolor)
-									.setFooter('Please Contact Botis‽#6940', ee.footericon)
-									.setTitle(`❌ ERROR | An error occurred`)
-									.setDescription(`\`\`\`${e.stack}\`\`\``)
-							);
-						}
+						ticketFunctions.Close(creator, channel, button, message, closeBtn, btns);
 						break;
 					case 'delete':
-						button.reply.send('This Ticket will be delted in 5 seconds.');
-						setTimeout(() => {
-							button.channel.delete({ timeout: 50000 });
-						}, 5000);
+						ticketFunctions.Delete(button);
 						break;
 					case 'save':
-						button.reply.send('Saving...Please wait...');
-
+						ticketFunctions.Save();
 						break;
 					case 'reopen':
-						channel.updateOverwrite(creator, {
-							SEND_MESSAGES: true,
-							VIEW_CHANNEL: true
-						});
-						try {
-							pinndedOne.edit(closeBtn.setDisabled(false).setLabel(`Close`));
-
-							msg.delete();
-							button.reply.send(`Ticket reopend by @${button.clicker.user.tag}`);
-						} catch (e) {
-							console.log(e);
-						}
+						ticketFunctions.Reopen(channel, creator, closeBtn, msg, button, pinndedOne);
 						break;
 				}
 

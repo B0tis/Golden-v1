@@ -85,11 +85,16 @@ module.exports.handlers = handlers;
 const distube = require('distube');
 const SpotifyPlugin = require('@distube/spotify');
 
-client.distube = new distube(client, {
+client.distube = new distube.DisTube(client, {
 	emitNewSongOnly: true,
 	leaveOnFinish: false,
 	leaveOnEmpty: false,
-	plugins: [ new SpotifyPlugin({ parallel: true }) ]
+	plugins: [
+		new SpotifyPlugin({
+			parallel: true,
+			emitPlaySongAfterFetching: true
+		})
+	]
 });
 
 client.distube.on('initQueue', (queue) => {

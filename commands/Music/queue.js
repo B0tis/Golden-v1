@@ -29,7 +29,8 @@ module.exports = {
 						.setColor(ee.color)
 						.setFooter(ee.footertext, ee.footericon)
 						.setTitle(`Current queue:`)
-						.setDescription(
+						.addField(`**Current:** ${song.name} - \`${song.formattedDuration}\``)
+						.addField(
 							`${queue.songs
 								.map((song, id) => `**${id + 1}**. ${song.name} - \`${song.formattedDuration}\``)
 								.slice(0, 20)

@@ -28,8 +28,7 @@ module.exports = {
 						'Member-Count Information About: ' + message.guild.name,
 						message.guild.iconURL({
 							dynamic: true
-						}),
-						'https://clan.milrato.eu'
+						})
 					)
 					.setColor(ee.color)
 					.addField('❱ Total USERS', '😀 `' + message.guild.memberCount + '`', true)
@@ -143,7 +142,7 @@ module.exports = {
 							'`',
 						true
 					)
-					.setFooter(ee.footertext)
+					.setFooter(ee.footertext, ee.footericon)
 					.setTimestamp()
 			);
 		} catch (e) {

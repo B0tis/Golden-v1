@@ -2,7 +2,6 @@ const disbut = require('discord-buttons');
 const { MessageEmbed } = require('discord.js');
 const config = require('../../botconfig/config.json');
 const ee = require('../../botconfig/embed.json');
-const profileModel = require('../../events/Ecosystem/profileSchema');
 require('dotenv').config();
 
 const ticketFunctions = require('../../handlers/ticketFunctions');

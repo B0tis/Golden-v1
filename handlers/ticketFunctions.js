@@ -2,10 +2,10 @@ const disbut = require('discord-buttons');
 const { MessageEmbed } = require('discord.js');
 const config = require('../botconfig/config.json');
 const ee = require('../botconfig/embed.json');
-const profileModel = require('../events/Ecosystem/profileSchema');
+const profileModel = require('./profileSchema');
 require('dotenv').config();
 
-const transcript = require('../events/Ecosystem/transcript'); //load the transcript.js file
+const transcript = require('./transcript'); //load the transcript.js file
 
 module.exports = { Close, Delete, Save, Reopen };
 

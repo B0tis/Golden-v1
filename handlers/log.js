@@ -1,8 +1,8 @@
 const Auditlog = require('discord-auditlog');
 
 const { MessageEmbed } = require('discord.js');
-const config = require('../../botconfig/config.json');
-const ee = require('../../botconfig/embed.json');
+const config = require('../botconfig/config.json');
+const ee = require('../botconfig/embed.json');
 
 module.exports = async (client, message, user, discord) => {
 	try {

@@ -6,28 +6,28 @@ const config = require('../../botconfig/config.json'); //loading config file wit
 const settings = require('../../botconfig/settings.json'); //loading settings file with the settings
 const ee = require('../../botconfig/embed.json'); //Loading all embed settings like color footertext and icon ...
 const Discord = require('discord.js'); //this is the official discord.js wrapper for the Discord Api, which we use!
+const memberAdd = require('../../handlers/guildMemberAdd');
 //rpelace
 const { escapeRegex, onCoolDown, replacemsg } = require('../../handlers/functions'); //Loading all needed functions
 //here the event starts
 module.exports = async (client, message) => {
 	/** Add User in Database if he is not in it | 16.7.21 Botis*/
-	//  let profileData;
-	//  try {
-	//  profileData = await profileModel.findOne({ userID: message.author.id });
-	//  if (!profileData) {
-	//  let profile = await profileModel.create({
-	//  userID: message.author.id,
-	//  userName: message.author.username,
-	//  serverID: message.guild.id,
-	//  coins: 1000,
-	//  bank: 0
-	//  });
-	//  profile.save();
-	//  console.log(`new Profile saved in DB, Name: ${message.author.username}`);
-	//  }
-	//  } catch (e) {
-	//  console.log(e);
-	//  }
+	let profileData;
+	try {
+		profileData = await memberAdd.userModel.findOne({ userID: message.author.id });
+		if (!profileData) {
+			let user = await memberAdd.userModel.create({
+				_id: message.author.id,
+				userName: message.author.username,
+				coins: 0,
+				bank: 1000
+			});
+			user.save();
+			console.log(`new Profile saved in DB, Name: ${message.author.username}`);
+		}
+	} catch (e) {
+		console.log(e);
+	}
 	/**  */
 
 	try {

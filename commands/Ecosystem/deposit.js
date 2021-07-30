@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const config = require('../../botconfig/config.json');
 const ee = require('../../botconfig/embed.json');
-const profileModel = require('../../events/Ecosystem/profileSchema');
+const profileModel = require('../../handlers/profileSchema');
 require('dotenv').config();
 
 module.exports = {

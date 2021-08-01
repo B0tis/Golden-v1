@@ -5,12 +5,10 @@ module.exports = {
 	//if [OPTIONAL] it means, you don't need to type it!
 	name: 'embed', //the Command Name [REQUIRED]
 	category: 'Moderation', //the Command Category [OPTIONAL]
-	aliases: [], //the command aliases [OPTIONAL]
 	cooldown: 2, //the Command Cooldown (Default in /botconfig/settings.json) [OPTIONAL]
 	usage: 'embed <Title> ++ <Description>', //the Command usage [OPTIONAL]
 	description: 'Resends your Text in an embed', //the command description [OPTIONAL]
 	memberpermissions: [ 'ADMINISTRATION' ], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]
-	requiredroles: [ '' ], //Only allow specific Users with a Role to execute a Command [OPTIONAL]
 	alloweduserids: [], //Only allow specific Users to execute a Command [OPTIONAL]
 	minargs: 0, // minimum args for the message, 0 == none [OPTIONAL]
 	maxargs: 0, // maximum args for the message, 0 == none [OPTIONAL]
@@ -25,7 +23,7 @@ module.exports = {
 			message.channel.send({
 				embed: new MessageEmbed()
 					.setColor(ee.color)
-					.setFooter(ee.footertext, ee.footericon)
+					.setFooter(ee.footertext)
 					.setTitle(title && desc ? title.substr(0, 256) : '')
 					.setDescription(desc ? desc : title ? title.substr(0, 2048) : '')
 			});

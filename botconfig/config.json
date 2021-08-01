@@ -1,4 +1,5 @@
 {
   "prefix": "gD!",
-  "defaultCommandCooldown" : 0
+  "defaultCommandCooldown" : 0,
+  "version": "2.75"
 }

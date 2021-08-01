@@ -193,5 +193,9 @@ client.distube.on('error', (queue, error) => {
 	queue.textChannel.send(`❌ ERROR | An error occurred:\n\`\`\`${error}\`\`\` \nPlease Contact Botis‽#6940`);
 });
 
+// const serviceStatus = client.channels.cache.get('865284018929139752');
+
+// serviceStatus.send('Test');
+
 //login into the bot
 client.login(process.env.TOKEN);

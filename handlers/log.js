@@ -28,7 +28,7 @@ module.exports = async (client, message, user, discord) => {
 	}
 };
 
-async function send_log(client, guild, color, title, description) {
+function send_log(client, guild, color, title, description) {
 	try {
 		const logEmbed = new MessageEmbed()
 			.setColor(ee.color)

@@ -15,6 +15,7 @@
     "@distube/spotify": "^0.4.1",
     "ascii-table": "0.0.9",
     "discord-auditlog": "^2.4.5",
+    "discord-backup": "^2.5.0",
     "discord-buttons": "^4.0.0",
     "discord.js": "^12.5.3",
     "distube": "^3.0.0-alpha.17",
